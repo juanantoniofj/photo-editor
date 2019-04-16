@@ -23,10 +23,16 @@ extension UIImage {
     fileprivate func rotatedImageWithTransform(_ transform: CGAffineTransform) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(size, true, scale)
         let context = UIGraphicsGetCurrentContext()
+        
+        context?.setFillColor(UIColor.white.cgColor)
+        context?.fill(CGRect(x: 0.0, y: 0.0, width: size.width, height: size.height))
+        
         context?.translateBy(x: size.width / 2.0, y: size.height / 2.0)
         context?.concatenate(transform)
         context?.translateBy(x: size.width / -2.0, y: size.height / -2.0)
+        
         draw(in: CGRect(x: 0.0, y: 0.0, width: size.width, height: size.height))
+        
         let rotatedImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return rotatedImage!

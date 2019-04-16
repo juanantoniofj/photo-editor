@@ -131,12 +131,13 @@ open class CropView: UIView, UIScrollViewDelegate, UIGestureRecognizerDelegate, 
 
     fileprivate func initialize() {
         autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        backgroundColor = UIColor.clear
+        backgroundColor = UIColor.white
         
         scrollView = UIScrollView(frame: bounds)
         scrollView.delegate = self
         scrollView.autoresizingMask = [.flexibleTopMargin, .flexibleLeftMargin, .flexibleBottomMargin, .flexibleRightMargin]
-        scrollView.backgroundColor = UIColor.clear
+        scrollView.backgroundColor = UIColor.white
+        
         scrollView.maximumZoomScale = 20.0
         scrollView.minimumZoomScale = 1.0
         scrollView.showsHorizontalScrollIndicator = false
@@ -294,7 +295,7 @@ open class CropView: UIView, UIScrollViewDelegate, UIGestureRecognizerDelegate, 
     
     // MARK: - Private methods
     fileprivate func showOverlayView(_ show: Bool) {
-        let color = show ? UIColor(white: 0.0, alpha: 0.4) : UIColor.clear
+        let color = show ? UIColor(white: 1.0, alpha: 0.7) : UIColor.clear
         
         topOverlayView.backgroundColor = color
         leftOverlayView.backgroundColor = color
